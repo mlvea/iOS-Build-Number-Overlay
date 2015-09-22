@@ -36,6 +36,7 @@
 		4D76CC201BB0EA1600CADF20 /* BuildNumberTaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildNumberTaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D76CC251BB0EA1600CADF20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D76CC261BB0EA1600CADF20 /* BuildNumberTaggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildNumberTaggerTests.swift; sourceTree = "<group>"; };
+		4D76CC301BB0EEDD00CADF20 /* AppIconReference.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconReference.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 				4D76CC171BB0EA1600CADF20 /* Images.xcassets */,
 				4D76CC191BB0EA1600CADF20 /* LaunchScreen.xib */,
 				4D76CC0E1BB0EA1600CADF20 /* Supporting Files */,
+				4D76CC301BB0EEDD00CADF20 /* AppIconReference.xcassets */,
 			);
 			path = BuildNumberTagger;
 			sourceTree = "<group>";
