@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1D2A6FB1-1676-486F-87CB-437DCC1E86F2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BuildNumberTagger</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9C101D3926182CE752A244D19BD2A04AE6169F1F</key>
+		<string>https://github.com/madnik/iOS-Build-Number-Overlay.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BuildNumberTagger.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9C101D3926182CE752A244D19BD2A04AE6169F1F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/madnik/iOS-Build-Number-Overlay.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9C101D3926182CE752A244D19BD2A04AE6169F1F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9C101D3926182CE752A244D19BD2A04AE6169F1F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BuildNumberTagger</string>
+		</dict>
+	</array>
+</dict>
+</plist>
