@@ -13,10 +13,12 @@ This depends on the popular image processing library `ImageMagick`. You can use 
 If you don't have homebrew installed have [HomeBrew](http://brew.sh/) first.
 
 Lets brew it.
+
     brew install ImageMagick
     brew install ghostscript
     
-If anything go wrong. Try,
+If anything go wrong. Try
+
     brew doctor
     
 Clone the repository and open build phases for your target. Wait a minute if you know what you are doing and lazy to clone here you got a gist for scripts. [Overlay Gist](https://gist.github.com/3ec45a168247fcc616c0.git)
