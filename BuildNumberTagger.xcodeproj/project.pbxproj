@@ -123,7 +123,9 @@
 			buildPhases = (
 				4D76CC071BB0EA1600CADF20 /* Sources */,
 				4D76CC081BB0EA1600CADF20 /* Frameworks */,
+				4D76CC321BB1763100CADF20 /* ShellScript */,
 				4D76CC091BB0EA1600CADF20 /* Resources */,
+				4D76CC331BB1944F00CADF20 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -208,6 +210,35 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D76CC321BB1763100CADF20 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "IFS=$'\\n'\n\nfunction tagAllIcons(){\n    buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n    versionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n    \n    APP_ICONS_PATH=\"${PROJECT_DIR}/BuildNumberTagger/Images.xcassets/AppIcon.appiconset\"\n    REFERENCE_ICONS_PATH=\"${PROJECT_DIR}/BuildNumberTagger/AppIconReference.xcassets\"\n    \n    for ICON_PATH in $(find ${REFERENCE_ICONS_PATH} -name \"*Icon*.png\")\n    do\n    name=${ICON_PATH##*/}\n        TARGET_PATH=\"${APP_ICONS_PATH}/$name\"\n        \n        echo $TARGET_PATH\n        \n        WIDTH=$(identify -format %w ${ICON_PATH})\n        FONT_SIZE=$(echo \"$WIDTH * .17\" | bc -l)\n        \n        convert ${ICON_PATH} -fill white -font Courier -pointsize ${FONT_SIZE} -gravity south -annotate 0 \"$versionNumber($buildNumber)\" ${TARGET_PATH}\n        \n        done\n}\n\n#Increase Build for next build\nfunction increaseBuild(){\n    \n    echo \"Increasing build number...\"\n    plist=${PROJECT_DIR}/${INFOPLIST_FILE}\n    \n    # increment the build number (ie 115 to 116)\n    buildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\n    if [[ \"${buildnum}\" == \"\" ]]; then\n    echo \"No build number in $plist\"\n    exit 2\n    fi\n    \n    buildnum=$(expr $buildnum + 1)\n    /usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\n    echo \"Increased build number to $buildnum\"\n    \n}\n    \nif [ \"${CONFIGURATION}\"==\"Release\" ]; then\n    tagAllIcons\n    #increaseBuild\nfi\n    \n";
+		};
+		4D76CC331BB1944F00CADF20 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "IFS=$'\\n'\n\n    #Increase Build for next build\nfunction increaseBuild(){\n        \n    echo \"Increasing build number...\"\n    plist=${PROJECT_DIR}/${INFOPLIST_FILE}\n        \n    # increment the build number (ie 115 to 116)\n    buildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\n    if [[ \"${buildnum}\" == \"\" ]]; then\n    echo \"No build number in $plist\"\n    exit 2\n    fi\n        \n    buildnum=$(expr $buildnum + 1)\n    /usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\n        echo \"Increased build number to $buildnum\"\n    \n}\n    \nif [ \"${CONFIGURATION}\"==\"Release\" ]; then\n    increaseBuild\nfi\n    \n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D76CC071BB0EA1600CADF20 /* Sources */ = {
@@ -413,6 +444,7 @@
 				4D76CC2C1BB0EA1600CADF20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D76CC2D1BB0EA1600CADF20 /* Build configuration list for PBXNativeTarget "BuildNumberTaggerTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +453,7 @@
 				4D76CC2F1BB0EA1600CADF20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

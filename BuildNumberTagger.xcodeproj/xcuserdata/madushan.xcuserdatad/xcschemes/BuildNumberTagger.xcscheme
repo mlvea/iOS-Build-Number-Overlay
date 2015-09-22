@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0640"
-   version = "1.7">
+   version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <PreActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "IFS=$&apos;\n&apos;&#10;&#10;function tagIcons(){&#10;    buildNumber=$(/usr/libexec/PlistBuddy -c &quot;Print CFBundleVersion&quot; &quot;${PROJECT_DIR}/${INFOPLIST_FILE}&quot;)&#10;    versionNumber=$(/usr/libexec/PlistBuddy -c &quot;Print CFBundleShortVersionString&quot; &quot;${PROJECT_DIR}/${INFOPLIST_FILE}&quot;)&#10;    &#10;    APP_ICONS_PATH=&quot;${PROJECT_DIR}/BuildNumberTagger/Images.xcassets/AppIcon.appiconset&quot;&#10;    REFERENCE_ICONS_PATH=&quot;${PROJECT_DIR}/BuildNumberTagger/AppIconReference.xcassets&quot;&#10;    &#10;    for ICON_PATH in $(find ${REFERENCE_ICONS_PATH} -name &quot;*Icon*.png&quot;)&#10;    do&#10;    name=${ICON_PATH##*/}&#10;        TARGET_PATH=&quot;${APP_ICONS_PATH}/$name&quot;&#10;        &#10;        echo $TARGET_PATH&#10;        &#10;        WIDTH=$(identify -format %w ${ICON_PATH})&#10;        FONT_SIZE=$(echo &quot;$WIDTH * .17&quot; | bc -l)&#10;        #echo $ICON_PATH&#10;        convert ${ICON_PATH} -fill white -font Courier -pointsize ${FONT_SIZE} -gravity south -annotate 0 &quot;$versionNumber($buildNumber)&quot; ${TARGET_PATH}&#10;        &#10;    done&#10;}&#10;    &#10;    &#10;if [ &quot;${CONFIGURATION}&quot; == &quot;Release&quot; ]; then&#10;    tagIcons&#10;fi&#10;    &#10;&#10;"
-               shellToInvoke = "/bin/zsh">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "4D76CC0A1BB0EA1600CADF20"
-                     BuildableName = "BuildNumberTagger.app"
-                     BlueprintName = "BuildNumberTagger"
-                     ReferencedContainer = "container:BuildNumberTagger.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -127,24 +108,5 @@
    <ArchiveAction
       buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
-      <PreActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "echo &quot;Increasing build number...&quot;&#10;plist=${PROJECT_DIR}/${INFOPLIST_FILE}&#10;&#10;buildnum=$(/usr/libexec/PlistBuddy -c &quot;Print CFBundleVersion&quot; &quot;${plist}&quot;)&#10;if [[ &quot;${buildnum}&quot; == &quot;&quot; ]]; then&#10;echo &quot;No build number in $plist&quot;&#10;exit 2&#10;fi&#10;&#10;buildnum=$(expr $buildnum + 1)&#10;/usr/libexec/Plistbuddy -c &quot;Set CFBundleVersion $buildnum&quot; &quot;${plist}&quot;&#10;echo &quot;Increased build number to $buildnum&quot;"
-               shellToInvoke = "/bin/zsh">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "4D76CC0A1BB0EA1600CADF20"
-                     BuildableName = "BuildNumberTagger.app"
-                     BlueprintName = "BuildNumberTagger"
-                     ReferencedContainer = "container:BuildNumberTagger.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PreActions>
    </ArchiveAction>
 </Scheme>
